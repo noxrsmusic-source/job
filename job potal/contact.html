@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Nexoral</title>
+<meta name="description" content="Get in touch with Nexoral. Email, phone, WhatsApp, Telegram and social profiles.">
+<link rel="canonical" href="https://www.example.com/contact.html">
+<meta property="og:title" content="Contact — Nexoral">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="page-loader"><div class="loader-ring"></div></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="grid-overlay"></span></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
+      <h1>Let's talk</h1>
+      <p>Questions about a service, an existing project or a partnership — reach us through any channel below. We respond within one business day.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="split" style="align-items:start">
+        <div data-reveal>
+          <h2 class="section-title" style="font-size:1.6rem;margin-bottom:26px">Contact details</h2>
+          <div class="aside-card" style="position:static;gap:0">
+            <div class="aside-list">
+              <div><span>Email</span><span><a id="cEmail" href="#">—</a></span></div>
+              <div><span>Phone / WhatsApp</span><span><a id="cPhone" href="#">—</a></span></div>
+              <div><span>Telegram</span><span><a id="cTelegram" href="#" target="_blank" rel="noopener noreferrer">Join channel</a></span></div>
+              <div><span>Business Hours</span><span id="cHours">—</span></div>
+              <div><span>Location</span><span id="cAddress">—</span></div>
+            </div>
+          </div>
+
+          <h2 class="section-title" style="font-size:1.6rem;margin:38px 0 20px">Social profiles</h2>
+          <div class="aside-card" style="position:static">
+            <div class="aside-list">
+              <div><span>Instagram</span><span><a id="sInsta" href="#" target="_blank" rel="noopener noreferrer">Open</a></span></div>
+              <div><span>LinkedIn</span><span><a id="sLinked" href="#" target="_blank" rel="noopener noreferrer">Open</a></span></div>
+              <div><span>YouTube</span><span><a id="sYt" href="#" target="_blank" rel="noopener noreferrer">Open</a></span></div>
+              <div><span>GitHub</span><span><a id="sGh" href="#" target="_blank" rel="noopener noreferrer">Open</a></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal data-reveal-delay="100">
+          <div class="cta-band" style="flex-direction:column;align-items:flex-start;gap:22px">
+            <div>
+              <h2 style="font-size:1.35rem">Prefer a project discussion?</h2>
+              <p>Skip the general enquiry and send us a full brief. We'll respond with scope, timeline and pricing.</p>
+            </div>
+            <a class="btn btn-primary btn-lg" href="hire-us.html">Start a Project</a>
+          </div>
+
+          <form class="form-shell" id="contactForm" style="margin-top:24px" novalidate>
+            <h3 style="font-size:1.1rem;margin-bottom:20px">Send a quick message</h3>
+            <div class="form-grid">
+              <div class="field"><label for="ctName">Full Name <span class="req">*</span></label>
+                <input id="ctName" name="name" type="text" autocomplete="name" required><span class="err"></span></div>
+              <div class="field"><label for="ctEmail">Email <span class="req">*</span></label>
+                <input id="ctEmail" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+              <div class="field full"><label for="ctSubject">Subject</label>
+                <input id="ctSubject" name="subject" type="text" placeholder="What is this regarding?"><span class="err"></span></div>
+              <div class="field full"><label for="ctMessage">Message <span class="req">*</span></label>
+                <textarea id="ctMessage" name="message" required placeholder="How can we help?"></textarea><span class="err"></span></div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="ctSubmit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+  import { SITE } from "./js/firebase-config.js";
+  import { db, collection, addDoc, serverTimestamp } from "./js/firebase.js";
+  import { COL } from "./js/firebase-config.js";
+  import { toast, validateForm, bindLiveValidation, validators, clean } from "./js/main.js";
+
+  document.getElementById("cEmail").href = `mailto:${SITE.email}`;
+  document.getElementById("cEmail").textContent = SITE.email;
+  document.getElementById("cPhone").href = `tel:${SITE.phone.replace(/\s/g,"")}`;
+  document.getElementById("cPhone").textContent = SITE.phone;
+  document.getElementById("cTelegram").href = SITE.telegramUrl;
+  document.getElementById("cHours").textContent = SITE.hours;
+  document.getElementById("cAddress").textContent = SITE.address;
+  document.getElementById("sInsta").href  = SITE.social.instagram;
+  document.getElementById("sLinked").href = SITE.social.linkedin;
+  document.getElementById("sYt").href     = SITE.social.youtube;
+  document.getElementById("sGh").href     = SITE.social.github;
+
+  const form = document.getElementById("contactForm");
+  bindLiveValidation(form);
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const ok = validateForm(form, {
+      name:    [validators.required, validators.min(2)],
+      email:   [validators.required, validators.email],
+      message: [validators.required, validators.min(10)]
+    });
+    if (!ok) { toast("Please fix the highlighted fields.", "error"); return; }
+
+    const btn = document.getElementById("ctSubmit");
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> Sending…`;
+
+    try {
+      await addDoc(collection(db, COL.contactMessages), {
+        name:    clean(form.name.value, 120),
+        email:   clean(form.email.value, 160).toLowerCase(),
+        subject: clean(form.subject.value, 200),
+        message: clean(form.message.value, 4000),
+        status:  "New",
+        source:  "contact-page",
+        createdAt: serverTimestamp()
+      });
+      form.reset();
+      toast("Message sent. We'll get back to you within one business day.", "success");
+    } catch (err) {
+      toast(err?.message || "Could not send your message. Please try again.", "error");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send Message";
+    }
+  });
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
