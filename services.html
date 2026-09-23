@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Nexoral</title>
+<meta name="description" content="Explore Nexoral's digital services: video production, writing, social media, graphic design, web development, software development and AI solutions.">
+<link rel="canonical" href="https://www.example.com/services.html">
+<meta property="og:title" content="Services — Nexoral">
+<meta property="og:description" content="Eight service lines. One accountable team.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="page-loader"><div class="loader-ring"></div></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="grid-overlay"></span></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></nav>
+      <h1>Capabilities engineered for <span class="grad-text">digital growth</span></h1>
+      <p>Eight core service lines covering content, creative, design, engineering and AI. Every engagement is scoped to the brief — never sold from a fixed package.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3" id="servicesGrid">
+        <div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div><div class="skeleton skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow"><span class="dot"></span> Delivery model</p>
+        <h2 class="section-title">How we work with you</h2>
+      </header>
+      <ol class="steps">
+        <li class="step" data-reveal><span class="step-num">01</span><h3>Discover</h3><p>We understand requirements, audience and success criteria before proposing anything.</p></li>
+        <li class="step" data-reveal data-reveal-delay="70"><span class="step-num">02</span><h3>Plan</h3><p>Scope, timeline, deliverables and pricing are documented and agreed upfront.</p></li>
+        <li class="step" data-reveal data-reveal-delay="140"><span class="step-num">03</span><h3>Create</h3><p>Structured production with checkpoints, reviews and visible progress.</p></li>
+        <li class="step" data-reveal data-reveal-delay="210"><span class="step-num">04</span><h3>Deliver</h3><p>Final handover with revisions, documentation and support.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <div>
+          <h2>Not sure which service fits?</h2>
+          <p>Describe your requirement and we'll recommend the right approach — or tell you honestly if we're not the right fit.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a class="btn btn-primary btn-lg" href="hire-us.html">Discuss Your Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+  import { renderServiceGrid } from "./js/services.js";
+  renderServiceGrid("#servicesGrid", 8);
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

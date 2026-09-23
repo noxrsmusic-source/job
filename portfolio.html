@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Work — Nexoral</title>
+<meta name="description" content="Selected projects and case studies across video, design, development, content and social media.">
+<link rel="canonical" href="https://www.example.com/portfolio.html">
+<meta property="og:title" content="Our Work — Nexoral">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="page-loader"><div class="loader-ring"></div></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="hero-bg" aria-hidden="true"><span class="orb orb-1"></span><span class="orb orb-2"></span><span class="grid-overlay"></span></div>
+    <div class="container page-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Work</span></nav>
+      <h1>Selected work &amp; <span class="grad-text">case studies</span></h1>
+      <p>A representative sample of the kind of work we deliver across video, design, development, content and social media. Client names are withheld where confidentiality applies.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:28px">
+        <div class="filters" id="portfolioFilters" style="margin-bottom:0"></div>
+        <div class="admin-search" style="margin-left:auto;max-width:300px;width:100%">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="position:absolute;left:13px;top:50%;translate:0 -50%;width:16px;height:16px;color:var(--muted-2)">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <input id="portfolioSearch" type="search" placeholder="Search projects…"
+                 style="width:100%;padding:11px 14px 11px 38px;border-radius:var(--r-full);background:var(--card);border:1px solid var(--border);font-size:.88rem;color:var(--text)">
+        </div>
+      </div>
+
+      <div class="grid grid-3" id="portfolioGrid">
+        <div class="skeleton skeleton-card" style="height:320px"></div>
+        <div class="skeleton skeleton-card" style="height:320px"></div>
+        <div class="skeleton skeleton-card" style="height:320px"></div>
+      </div>
+
+      <p class="section-note" id="portfolioNote"></p>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <div>
+          <h2>Want results like these?</h2>
+          <p>Share your brief and we'll come back with a scoped plan, timeline and pricing.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a class="btn btn-primary btn-lg" href="hire-us.html">Start a Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/portfolio.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
